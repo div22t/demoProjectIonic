@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button (click)="storeData()"></ion-back-button>
+      </ion-buttons>
+      <ion-title>MCQ</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Question 3:</ion-card-title>
+        <ion-card-subtitle>The contraction and expansion movement of the walls of the food pipe is called:?</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <form [formGroup]="form">
+            <div *ngFor="let d of data;let i=index">
+              <ion-checkbox [formControlName]="i+'q'" [checked]="form.get(i+'q')?.value" (ionChange)="checkBoxAllLongiClick($event,i)">
+                {{d}}
+              </ion-checkbox>
+              <!-- <ion-label>{{d}}</ion-label> -->
+              <br>
+            </div>
+        </form>
+      
+      </ion-card-content>
+      <ion-nav-link router-direction="forward" [component]="component">
+        <ion-button (click)="storeData()">Next</ion-button>
+      </ion-nav-link>
+    </ion-card>
+  </ion-content>
